@@ -4,5 +4,25 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+ 	
+	<!-- Bullet bullet = new Bullet() -->
+<!--<been class="com.iu.army.Bullet" id="bullet"></been>-->
+	
+	<!-- Gun gun = new Gun() -->
+<!--<been class="com.iu.army.Gun" id="gun">  -->	
+		<!--<constructor-arg name="bullet" ref="bullet"></constructor-arg>  -->
+<!--</been>  -->	
+	
+	<!-- Soldier soldier = new Soldier() -->
+	<!--<been class="com.iu.army.Soldier" id="soldier">  -->	
+		<!-- soldier.setGun(gun) -->
+		<!-- setter 이름은 set을 제외하고 첫글자를 소문자로 바꾼것 -->
+		<!-- getter 이름은 get을 제외하고 첫글자를 소문자로 바꾼것 -->
+		<!--<property name="gun" ref="gun"></property>  -->	
+		<!--<property name="age" value="10"></property>  -->
+		<!--<property name="name" value="winter"></property>  -->
+<!--</been>  -->	
+	
 		
 </beans>
