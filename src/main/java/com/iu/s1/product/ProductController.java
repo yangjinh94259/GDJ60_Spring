@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -53,9 +54,16 @@ public class ProductController {
 		return "product/productDetail";
 	}
 	
-	@RequestMapping(value = "productAdd")
+	@RequestMapping(value = "productAdd", method = RequestMethod.GET)
 	public void getProductAdd() {
 		System.out.println("Product Add");
+	}
+	
+	@RequestMapping(value = "productAdd", method = RequestMethod.POST)
+	public String productAdd(ProductDTO productDTO) throws Exception{
+		int result = productService.setAddProduct(productDTO, null);
+		System.out.println(result == 1);
+		return "redirect:./list";
 	}
 	
 	@RequestMapping(value = "update")
