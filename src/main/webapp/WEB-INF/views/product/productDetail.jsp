@@ -13,13 +13,13 @@
 		ProductDTO productDTO = (ProductDTO)request.getAttribute("dto");
 	%>
 	
-	<h3><%=productDTO.getProductname() %></h3>
-	<h3><%=productDTO.getProductdetail() %></h3>
+	<h3><%=productDTO.getProductName() %></h3>
+	<h3><%=productDTO.getProductDetail() %></h3>
 	
 	<hr>
-	<h3>${requestScope.dto.productname}</h3>
-	<h3>${dto.productdetail}</h3>
-	<h3>${dto.productjumsu * dto.productnum}</h3>
+	<h3>${requestScope.dto.productName}</h3>
+	<h3>${dto.productDetail}</h3>
+	<h3>${dto.productJumsu * dto.productNum}</h3>
 	
 </body>
 </html>

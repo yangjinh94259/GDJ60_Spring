@@ -11,9 +11,9 @@
 	<div class="col-6">
 		<form action="./productAdd" method="post">
 			상품명
-			<input type="text" name="productname" value="test">
+			<input type="text" name="productName" value="test">
 			상품정보
-			<textarea name="productdetail" rows="" cols=""></textarea>
+			<textarea name="productDetail" rows="" cols=""></textarea>
 			<button type="submit">등록</button>
 		</form>
 		

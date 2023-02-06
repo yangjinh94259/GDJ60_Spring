@@ -13,19 +13,21 @@
 <body>
 	<h1>Product List Page</h1>
 	
-	<%
+<%--	  
+ 	<%
 		List<ProductDTO> ar = (List<ProductDTO>)request.getAttribute("list");
 	
 		for(ProductDTO productDTO:ar){
 		
 	%>
 	
-		<h3><%=productDTO.getProductname() %></h3>
-		<h3><%=productDTO.getProductjumsu() %></h3>
+		<h3><%=productDTO.getProductName() %></h3>
+		<h3><%=productDTO.getProductJumsu() %></h3>
 	
 	<%
 		}
-	%>
+	%> 
+--%>
 	
 	<hr>
 	
@@ -42,8 +44,8 @@
 			
 				<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담김 -->
 					<tr>
-						<td><a href="./detail?productnum=${dto.productnum}">${pageScope.dto.productname}</a></td>
-						<td>${dto.productjumsu}</td>
+						<td><a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productName}</a></td>
+						<td>${dto.productJumsu}</td>
 					</tr>
 				</c:forEach>
 				
