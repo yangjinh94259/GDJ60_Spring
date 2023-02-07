@@ -18,11 +18,20 @@ public class MemberController {
 		return "member/memberJoin";
 	}
 	
+	@RequestMapping(value = "memberJoin", method = RequestMethod.POST)
+	public String memberJoin(MemberDTO memberDTO) throws Exception{
+		
+		//int result = memberService.setMemberJoin(memberDTO, null);
+		//System.out.println(result == 1);
+		
+		return "redirect:./join";
+	}
+	
 	@RequestMapping(value = "memberLogin")
 	public void login() {
 		
 	}
-	
+
 	@RequestMapping(value = "page")
 	public ModelAndView myPage() {
 		ModelAndView mv = new ModelAndView();
