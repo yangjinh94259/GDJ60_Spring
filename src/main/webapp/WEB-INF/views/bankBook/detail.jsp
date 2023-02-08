@@ -16,10 +16,12 @@
 		<h3>Rate : ${dto.bookRate}</h3>
 		<h3>Sale : ${dto.bookSale}</h3>
 		<a href="./delete?bookNumber=${dto.bookNumber}">상품삭제</a>
+		
 	</c:if>
 	<c:if test="${empty dto}">
 		<h3>존재하지 않는 상품</h3>
 	</c:if>
+	<a href="./update?bookNumber=${dto.bookNumber}">상품수정</a>
 	<a href="./list">목록으로</a>
 </body>
 </html>

@@ -24,4 +24,5 @@
   		DELETE BANKBOOK
   		WHERE BOOKNUMBER = #{bookNumber}
   	</delete>
+  	
   </mapper>
