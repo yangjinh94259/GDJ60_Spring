@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Member Join Page</h1>
-		<form action="./memberJoin" method="post"></form>
+		<form action="./join" method="post">
 			ID
 			<input type="text" name="id">
 			PW
@@ -22,6 +22,6 @@
 			EMAIL
 			<input type="text" name="email">
 			<button type="submit">등록</button>
-	
+	</form>
 </body>
 </html>

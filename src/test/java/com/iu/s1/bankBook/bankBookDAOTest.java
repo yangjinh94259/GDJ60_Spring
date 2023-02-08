@@ -32,4 +32,9 @@ public class bankBookDAOTest extends MyTestCase {
 		
 	}
 	
+	public void setBankBookAdd() throws Exception{
+		BankBookDTO bankBookDTO = new BankBookDTO();
+		bankBookDTO.setBookNumber(null);
+	}
+	
 }

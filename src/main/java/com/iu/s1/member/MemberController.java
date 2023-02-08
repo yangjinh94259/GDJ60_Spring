@@ -14,17 +14,16 @@ public class MemberController {
 	private MemberService memberService;
 	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
-	public String join() {
-		return "member/memberJoin";
+	public ModelAndView join(ModelAndView mv) {
+		mv.setViewName("member/memberJoin");
+		return mv;
 	}
 	
-	@RequestMapping(value = "memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO) throws Exception{
-		
-		//int result = memberService.setMemberJoin(memberDTO, null);
-		//System.out.println(result == 1);
-		
-		return "redirect:./join";
+	@RequestMapping(value = "join", method = RequestMethod.POST)
+	public String setMemberJoin(MemberDTO memberDTO) throws Exception{
+		int result = memberService.setMemberJoin(memberDTO);
+		System.out.println(result == 1);
+		return "redirect:./page";
 	}
 	
 	@RequestMapping(value = "memberLogin")

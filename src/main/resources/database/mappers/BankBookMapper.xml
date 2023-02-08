@@ -17,7 +17,7 @@
   	
   	<insert id="setBankBookAdd" parameterType="BankBookDTO">
   		INSERT INTO BANKBOOK
-  		VALUES(#{bookNumber}, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
+  		VALUES(BankBook_SEQ.NEXTVAL, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
   	</insert>
   	
   	<delete id="setBankBookDelete" parameterType="BankBookDTO">
