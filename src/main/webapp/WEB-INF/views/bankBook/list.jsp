@@ -6,11 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resources/css/table.css">
 </head>
 <body>
-	<h1>Bank Book List Page</h1>
-	
-	<table border="1">
+	<h1 class="title">Bank Book List Page</h1>
+	<div class="image">
+		<img alt="" src="../resources/images/chobab.jpg">
+	</div>
+	<table border="1" class="tbl">
 		<thead>
 			<tr>
 				<th>상품명</th>

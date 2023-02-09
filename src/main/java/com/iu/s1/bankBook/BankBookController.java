@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -50,7 +51,7 @@ public class BankBookController {
 	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		int result = bankBookService.setBankBookAdd(bankBookDTO);
+		//int result = bankBookService.setBankBookAdd(bankBookDTO);
 		
 		mv.setViewName("redirect:./list");
 		mv.addObject(bankBookDTO);
@@ -67,16 +68,17 @@ public class BankBookController {
 		return mv;
 	}
 	
-	public ModelAndView setBankBookUpdate(BankBookDTO bankBookDTO, ModelAndView mv) throws Exception{
-		
-		
-		return mv;
-	}
-	
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public ModelAndView setBankBookDelete(BankBookDTO bankBookDTO) throws Exception { 
 		ModelAndView mv = new ModelAndView();
 		int result = bankBookService.setBankBookDelete(bankBookDTO);
+		mv.setViewName("redirect:./list");
+		return mv;
+	}
+	
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public ModelAndView setBankBookUpdate(BankBookDTO bankBookDTO, ModelAndView mv) throws Exception{
+		int result = bankBookService.setBankBookUpdate(bankBookDTO);
 		mv.setViewName("redirect:./list");
 		return mv;
 	}
