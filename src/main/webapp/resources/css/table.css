@@ -1,6 +1,14 @@
 .tbl {
     width: 70%;
     margin: 0px auto;
+    border: 1px solid black;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.tbl th, .tbl td {
+    border: 1px solid black;
+    height: 40px;
 }
 
 .title {
@@ -11,4 +19,45 @@
 .image {
     width: 30%;
     margin: 0 auto;
+}
+
+.tbl_td {
+    text-align: center;
+}
+
+.tbl th {
+    color: white;
+    background-color: black;
+}
+
+.tbl > tbody td > a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* *********tbl2*********** */
+/* 헤더부분 border 흰색 글자색 흰색 배경은 검정색 */
+/* 밑에 부분 테두리가 언더라인만 색깔은 검정색*/
+/* a태그는 언더라인 없고 배경 흰색 글자색 검정색 */
+
+.tbl2 {
+    width: 70%;
+    margin: 0px auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+
+.tbl2 th {
+    background-color: black;
+    color: white;
+}
+
+.tbl2 > tbody > tr > td{
+    border-bottom: 1px solid black;
+}
+
+.tbl2 th, .tbl2 td {
+    border-right: 3px solid white;
 }

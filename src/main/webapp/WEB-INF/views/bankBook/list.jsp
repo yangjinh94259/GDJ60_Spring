@@ -13,7 +13,7 @@
 	<div class="image">
 		<img alt="" src="../resources/images/chobab.jpg">
 	</div>
-	<table border="1" class="tbl">
+	<table class="tbl2">
 		<thead>
 			<tr>
 				<th>상품명</th>
@@ -25,8 +25,8 @@
 		<c:forEach items="${list}" var="dto">
 			<tr>
 				<td><a href="./detail?bookNumber=${dto.bookNumber}">${dto.bookName}</a></td>
-				<td>${dto.bookRate}</td>
-				<td>
+				<td class="tbl_td">${dto.bookRate}</td>
+				<td class="tbl_td">
 					<%-- <c:if test="${dto.bookSale eq 1}">판매중</c:if>
 					<c:if test="${dto.bookSale eq 0}">판매중단</c:if> --%>
 					<c:choose>

@@ -31,7 +31,7 @@
 	
 	<hr>
 	
-	<table class="tbl" border="1">
+	<table class="tbl2">
 			<thead>
 				<tr>
 					<th>상품명</th>
