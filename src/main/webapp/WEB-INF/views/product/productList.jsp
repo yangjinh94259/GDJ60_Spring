@@ -7,53 +7,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>제품</title>
 <c:import url="../template/common_css.jsp"></c:import>
-<link rel="stylesheet" href="/resources/css/table.css">
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-	<h1 class="title">Product List Page</h1>
-	
-<%--	  
- 	<%
-		List<ProductDTO> ar = (List<ProductDTO>)request.getAttribute("list");
-	
-		for(ProductDTO productDTO:ar){
-		
-	%>
-	
-		<h3><%=productDTO.getProductName() %></h3>
-		<h3><%=productDTO.getProductJumsu() %></h3>
-	
-	<%
-		}
-	%> 
---%>
-	
-	<hr>
-	
-	<table class="tbl2">
-			<thead>
-				<tr>
-					<th>상품명</th>
-					<th>평점</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-			
-				<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담김 -->
-					<tr>
-						<td><a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productName}</a></td>
-						<td>${dto.productJumsu}</td>
-					</tr>
-				</c:forEach>
-				
-			</tbody>
-		</table>
-		
-		<a class="btn btn-danger" href="./productAdd">상품등록</a>
+
+<div class="container-fluid my-5">
+	<div class="row mb-4">
+		<h1 class="col-md-7 mx-auto text-center border-bottom border-dark pb-4">Product List Page</h1>
 	</div>
+	
+	<div class="row col-md-7 mx-auto">
+		<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>상품명</th>
+						<th>평점</th>
+					</tr>
+				</thead>
+				<tbody class="table-group-divider">
+					<c:forEach items="${list}" var="dto"> <!-- dto는 page 영역에 담김 -->
+						<tr>
+							<td><a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productName}</a></td>
+							<td>${dto.productJumsu}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			</div>
+			<div class="row col-md-7 mx-auto">
+				<a class="btn btn-primary col-2" href="./productAdd">상품등록</a>
+			</div>
+		</div>
+		<c:import url="../template/common_js.jsp"></c:import>
  </body>
 </html>

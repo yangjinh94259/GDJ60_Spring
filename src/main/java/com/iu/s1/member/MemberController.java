@@ -34,7 +34,7 @@ public class MemberController {
 	@RequestMapping(value = "page")
 	public ModelAndView myPage() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("member/memberPage");
+		mv.setViewName("home");
 		return mv;
 	}
 	
