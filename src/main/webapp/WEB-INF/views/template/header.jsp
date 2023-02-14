@@ -15,7 +15,7 @@
       </ul>
       
       <ul class="navbar-nav">
-	     	<li class="nav-item"><a class="nav-link" href="#" style="font-size: 11px;">LOGIN</a></li>
+	     	<li class="nav-item"><a class="nav-link " href="/member/memberLogin" style="font-size: 11px;">LOGIN</a></li>
 			<li class="nav-item"><a class="nav-link" href="/member/join" style="font-size: 11px;">JOIN</a></li>
 			<li class="nav-item"><a class="nav-link" href="#" style="font-size: 11px;">KO</a></li>
 			<li class="nav-item"><a class="nav-link" href="#" style="font-size: 11px;">EN</a></li>
