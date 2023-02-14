@@ -60,4 +60,39 @@ public class MemberController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "memberLogout", method = RequestMethod.GET)
+	public ModelAndView getMemberLogout(HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		session.invalidate();
+		mv.setViewName("redirect:../");
+		return mv;
+	}
+	
+	@RequestMapping(value = "memberPage", method = RequestMethod.GET)
+	public ModelAndView getMemberPage() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/memberPage");
+		return mv;
+	}
+	
+	@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
+	public ModelAndView setMemberUpdate() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/memberUpdate");
+		return mv;
+	}
+	
+	@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
+	public ModelAndView setMemberUpdate(MemberDTO memberDTO, HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		MemberDTO sessionMemberDTO = (MemberDTO) session.getAttribute("member");
+		memberDTO.setId(sessionMemberDTO.getId());
+		int result = memberService.setMemberUpdate(memberDTO);
+		if(result > 0) {
+			session.setAttribute("member", memberDTO);
+		}
+		mv.setViewName("redirect:./memberPage");
+		return mv;
+	}
+	
 }
