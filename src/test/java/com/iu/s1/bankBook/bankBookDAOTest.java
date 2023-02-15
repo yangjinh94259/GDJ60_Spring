@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s1.MyTestCase;
+import com.iu.s1.util.Pager;
 
 public class bankBookDAOTest extends MyTestCase {
 
@@ -16,9 +17,9 @@ public class bankBookDAOTest extends MyTestCase {
 	private BankBookDAO bankBookDAO;
 	
 	@Test
-	public void getBankBookList() throws Exception{
+	public void getBankBookList(Pager pager) throws Exception{
 		
-		List<BankBookDTO> ar = bankBookDAO.getBankBookList();
+		List<BankBookDTO> ar = bankBookDAO.getBankBookList(pager);
 		assertEquals(1, ar.size());
 	}
 	

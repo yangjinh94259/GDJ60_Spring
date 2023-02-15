@@ -20,6 +20,7 @@
 	     		<li class="nav-item"><a class="nav-link" href="/member/memberLogin" style="font-size: 11px;">LOGIN</a></li>
 				<li class="nav-item"><a class="nav-link" href="/member/join" style="font-size: 11px;">JOIN</a></li>
 			</c:if>
+			
 			<c:if test="${not empty member}">
 	     		<li class="nav-item"><a class="nav-link" href="/member/memberPage" style="font-size: 11px;">My Page</a></li>
 				<li class="nav-item"><a class="nav-link" href="/member/memberLogout" style="font-size: 11px;">Logout</a></li>

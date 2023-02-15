@@ -22,21 +22,20 @@
 		
 				<div class="mb-3">
 					<label for="name" class="form-label">NAME</label>
-					<input type="text" name="name" class="form-control" id="name">
+					<input type="text" name="name" class="form-control" id="name"  value="${dto.name}">
 				</div>
 				
 				<div class="mb-3">
 					<label for="phone" class="form-label">PHONE</label>
-					<input type="text" name="phone" class="form-control" id="phone">
+					<input type="text" name="phone" class="form-control" id="phone" value="${dto.phone}">
 				</div>
 				
 				<div class="mb-3">
 					<label for="email" class="form-label">EMAIL</label>
-					<input type="text" name="email" class="form-control" id="email">
+					<input type="text" name="email" class="form-control" id="email" value="${dto.email}">
 				</div>
 				
-				
-				<button type="submit" class="btn btn-primary">정보수정</button>
+				<button type="submit" class="btn btn-primary">확인</button>
 		</form>
 		</div>
 	</div>

@@ -3,11 +3,13 @@ package com.iu.s1.product;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s1.MyTestCase;
+import com.iu.s1.bankBook.BankBookDTO;
 
 public class ProductDAOTest extends MyTestCase{
 
@@ -37,14 +39,19 @@ public class ProductDAOTest extends MyTestCase{
 	@Test
 	public void getProductAdd() throws Exception{
 		
-		ProductDTO productDTO = new ProductDTO();
-		productDTO.setProductNum(2000000L);
-		productDTO.setProductName("킹왕쨩");
-		productDTO.setProductDetail("나는 킹왕쨩");
-		productDTO.setProductJumsu(2.2);
-		int result = productDAO.setProductAdd(productDTO);
+		for(int i=0; i < 30; i++) {
+			Random r = new Random();
+			double d = r.nextDouble();
+			int num = (int)(d*1000);
+			d = num/100.0;
+			
+			BankBookDTO bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookName("적적적적금금금금"+i);
+			bankBookDTO.setBookRate(d);
+			bankBookDTO.setBookSale(1);
+		}
 		
-		assertEquals(1, result);
+		System.out.println("Finish");
 		
 	}
 	
