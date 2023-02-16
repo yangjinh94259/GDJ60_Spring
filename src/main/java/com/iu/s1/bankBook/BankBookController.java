@@ -57,6 +57,7 @@ public class BankBookController {
 		System.out.println("OriName : " + pic.getOriginalFilename());
 		System.out.println("Size : " + pic.getSize());
 		
+		
 //		int result = bankBookService.setBankBookAdd(bankBookDTO);
 		
 		mv.setViewName("redirect:./list");

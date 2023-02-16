@@ -6,7 +6,8 @@ public class FileManager {
 
 	//File을 HDD에 저장
 	public void fileSave(MultipartFile file)throws Exception{
-		//1.
+		//1. 어디에 저장할 것인가???
+		// /resources/upload/bankBook/...
 	}
 	
 }

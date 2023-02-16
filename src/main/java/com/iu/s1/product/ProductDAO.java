@@ -26,6 +26,10 @@ public class ProductDAO {
 		return sqlSession.selectOne(NAMESPACE + "getProductCount", pager);
 	}
 	
+	public List<ProductDTO> getProductList(Pager pager) throws Exception{
+		return sqlSession.selectList(NAMESPACE + "getProductList", pager);
+	}
+	
 	//delete
 	public int setProductDelete(Long productNum) throws Exception{
 		
@@ -96,12 +100,6 @@ public class ProductDAO {
 
 	}
 	//-------------------------------------------------------------------------------------------
-	
-	public List<ProductDTO> getProductList(Pager pager) throws Exception{
-		
-		return sqlSession.selectList(NAMESPACE + "getProductList", pager);
-	
-	}
 	
 	public int setProductAdd(ProductDTO productDTO) throws Exception{
 	
