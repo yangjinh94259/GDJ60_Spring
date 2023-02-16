@@ -43,7 +43,6 @@
 				SELECT ROWNUM R, B.* FROM
 					(
 						SELECT * FROM BANKBOOK
-					<!-- <include refid="searchCondition"></include> -->
 						<include refid="searchCondition2"></include>
 						ORDER BY BOOKNUMBER DESC
 					) B

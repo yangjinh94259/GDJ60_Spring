@@ -16,48 +16,37 @@
 		<h1 class="col-md-7 mx-auto text-center border-bottom border-dark pb-4">Bank Book Add Page</h1>
 	</div>
 	
-	<div class="row justify-content-center">
-	<form  class="col-4" action="./add" method="post" enctype="multipart/form-data">
-	<div class="mb-3">
-	    <label for="bookName" class="form-label">제품명</label>
-	    <input type="text" name="bookName" class="form-control" id="bookName" placeholder="제품명 입력">
-    </div>
-    
-    <div class="mb-3">
-	    <label for="bookRate" class="form-label">이자율</label>
-	    <input type="text" name="bookRate" class="form-control" id="bookRate" placeholder="이자율 입력">
-    </div>
-	
-	<div class="mb-3">
-	<label class="form-label">판매여부</label>
-	<div class="form-check">
- 		<input class="form-check-input" type="radio" name="bookSale" checked id="bookSale1" value="1">
-  		<label class="form-check-label" for="bookSale1">
-    	판매중
- 		 </label>
-	</div>
-
-	<div class="form-check">
- 		<input class="form-check-input" type="radio" name="bookSale" id="bookSale2" value="0">
-  		<label class="form-check-label" for="bookSale2">
-    	판매중단
- 	 	</label>
-	</div>
-	</div>
-	
-	<div class="mb-3">
-		<label for="bookDetail" class="form-label">상세설명</label>
-		<textarea name="bookDetail" class="form-control" id="bookDetais" placeholder="설명 입력" rows="7"></textarea>
-    </div>
-    
-    <div class="mb-3">
-		<label for="files" class="form-label">이미지</label>
-		<textarea name="files" class="form-control" id="files" name="pic"></textarea>
-    </div>
-	
-	<div class="mb-3">
-		<button class="btn btn-primary" type="submit">등록</button>
-	</div>
+		<div class="row justify-content-center">
+		<form  class="col-4" action="./add" method="post" enctype="multipart/form-data">
+		<div class="mb-3">
+		    <label for="bookName" class="form-label">제품명</label>
+		    <input type="text" name="bookName" class="form-control" id="bookName" placeholder="제품명 입력">
+	    </div>
+	    
+	    <div class="mb-3">
+		    <label for="bookRate" class="form-label">이자율</label>
+		    <input type="text" name="bookRate" class="form-control" id="bookRate" placeholder="이자율 입력">
+	    </div>
+		
+		
+		<div class=" mb-3 form-check form-switch">
+			<label class="form-check-label" for="bookSale">판매여부</label>
+			<input name="bookSale" class="form-check-input" value="1" type="checkbox" role="switch" id="bookSale">
+		</div>
+		
+		<div class="mb-3">
+			<label for="bookDetail" class="form-label">상세설명</label>
+			<textarea name="bookDetail" class="form-control" id="bookDetais" placeholder="설명 입력" rows="7"></textarea>
+	    </div>
+	    
+	    <div class="mb-3">
+			<label for="files" class="form-label">이미지</label>
+			<input name="file" class="form-control" id="files" name="pic">
+	    </div>
+		
+		<div class="mb-3">
+			<button class="btn btn-primary" type="submit">등록</button>
+		</div>
 	</form>
 	</div>
 </div>

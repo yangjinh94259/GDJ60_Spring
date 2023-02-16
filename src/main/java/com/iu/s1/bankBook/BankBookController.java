@@ -2,6 +2,7 @@ package com.iu.s1.bankBook;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,18 +51,18 @@ public class BankBookController {
 	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic) throws Exception{
+	public ModelAndView setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		System.out.println("Name : " + pic.getName());
-		System.out.println("OriName : " + pic.getOriginalFilename());
-		System.out.println("Size : " + pic.getSize());
+		System.out.println("Name : "+pic.getName());
+		System.out.println("OriName : "+pic.getOriginalFilename());
+		System.out.println("Size : "+pic.getSize());
+		System.out.println(session.getServletContext());
 		
 		
-//		int result = bankBookService.setBankBookAdd(bankBookDTO);
+		int result = bankBookService.setBankBookAdd(bankBookDTO, pic);
 		
 		mv.setViewName("redirect:./list");
-		mv.addObject(bankBookDTO);
 		
 		return mv;
 	}
