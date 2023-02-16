@@ -2,6 +2,7 @@ package com.iu.s1.product;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,7 +23,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(value = "list", method = RequestMethod.GET)
+	@RequestMapping(value = "list")
 	public ModelAndView getProductList(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		

@@ -17,7 +17,7 @@
 	</div>
 	
 	<div class="row justify-content-center">
-	<form  class="col-4" action="./add" method="post">
+	<form  class="col-4" action="./add" method="post" enctype="multipart/form-data">
 	<div class="mb-3">
 	    <label for="bookName" class="form-label">제품명</label>
 	    <input type="text" name="bookName" class="form-control" id="bookName" placeholder="제품명 입력">
@@ -50,10 +50,10 @@
 		<textarea name="bookDetail" class="form-control" id="bookDetais" placeholder="설명 입력" rows="7"></textarea>
     </div>
     
-    <!-- <div class="mb-3">
+    <div class="mb-3">
 		<label for="files" class="form-label">이미지</label>
-		<textarea name="files" class="form-control" id="files" pc="files" rows="7"></textarea>
-    </div> -->
+		<textarea name="files" class="form-control" id="files" name="pic"></textarea>
+    </div>
 	
 	<div class="mb-3">
 		<button class="btn btn-primary" type="submit">등록</button>

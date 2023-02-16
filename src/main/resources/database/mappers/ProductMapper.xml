@@ -21,7 +21,7 @@
   	
   </select>
   
-  <select id="getProductList" parameterType="Page" resultType="ProductDTO" statementType="PREPARED">
+  <select id="getProductList" parameterType="Pager" resultType="ProductDTO" statementType="PREPARED">
   	SELECT * FROM PRODUCT
   		(
   			SELECT ROWNUM R, P.* FROM
