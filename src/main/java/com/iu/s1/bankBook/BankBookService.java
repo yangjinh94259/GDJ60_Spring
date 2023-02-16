@@ -2,6 +2,8 @@ package com.iu.s1.bankBook;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,7 +30,10 @@ public class BankBookService {
 		return bankBookDAO.getBankBookDetail(bankBookDTO);
 	}
 	
-	public int setBankBookAdd(BankBookDTO bankBookDTO) throws Exception{
+	public int setBankBookAdd(BankBookDTO bankBookDTO, MultipartFile pic) throws Exception{
+		int result = bankBookDAO.setBankBookAdd(bankBookDTO);
+//		String realPath = ServletContext.getRealPath("");
+//		String fileName = fileManager.fileSave(pic, realPath)
 		return bankBookDAO.setBankBookAdd(bankBookDTO);
 	}
 	
