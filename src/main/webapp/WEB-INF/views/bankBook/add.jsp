@@ -47,8 +47,13 @@
 	
 	<div class="mb-3">
 		<label for="bookDetail" class="form-label">상세설명</label>
-		<textarea name="bookDetail" class="form-control" id="bookDetail" placeholder="설명 입력" rows="7"></textarea>
+		<textarea name="bookDetail" class="form-control" id="bookDetais" placeholder="설명 입력" rows="7"></textarea>
     </div>
+    
+    <!-- <div class="mb-3">
+		<label for="files" class="form-label">이미지</label>
+		<textarea name="files" class="form-control" id="files" pc="files" rows="7"></textarea>
+    </div> -->
 	
 	<div class="mb-3">
 		<button class="btn btn-primary" type="submit">등록</button>

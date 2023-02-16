@@ -7,10 +7,43 @@
   <select id="getProductNum" resultType="Long">
   	SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL
   </select>
-  <select id="getProductList" resultType="ProductDTO" statementType="PREPARED">
-  	SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU
-  	FROM PRODUCT
-  	ORDER BY PRODUCTNUM DESC
+  
+  <select id="getProductCount" parameterType="Pager" resultType="Long">
+  	SELECT COUNT(PRODUCTNUM) FROM PRODUCT
+  	
+  	<if test="kind == 'contents'">
+  		WHERE PRODUCTDETAIL LIKE '%' || ${search} || '%'
+  	</if>
+  	
+  	<if test="kind == 'title'">
+  		WHERE PRODUCTNAME LIKE '%' || ${search} || '%'
+  	</if>
+  	
+  </select>
+  
+  <select id="getProductList" parameterType="Page" resultType="ProductDTO" statementType="PREPARED">
+  	SELECT * FROM PRODUCT
+  		(
+  			SELECT ROWNUM R, P.* FROM
+  				(
+  					SELECT * FROM PRODUCT
+  					WHERE
+  					
+  					<choose>
+  						<when test="kind == 'contents'">
+  							PRODUCTDETAIL
+  						</when>
+  						<otherwise>
+  							PRODUCTNAME
+  						</otherwise>
+  					</choose>
+  					
+  					LIKE '%' || ${search} || '%'
+  					
+  					ORDER BY PRODUCTNUM DESC
+  				)P
+  		)
+  	WHERE R BETWEEN #{startRow} AND #{lastRow}
   </select>
   	
   <select id="getProductDetail" parameterType="ProductDTO" resultType="ProductDTO">
@@ -26,7 +59,5 @@
   <delete id="setProductDelete" parameterType="Long">
   	DELETE PRODUCT WHERE PRODUCTNUM = #{productNum}
   </delete>
-  	
-  	
   	
   </mapper>

@@ -10,16 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.iu.s1.MyTestCase;
 import com.iu.s1.bankBook.BankBookDTO;
+import com.iu.s1.util.Pager;
 
 public class ProductDAOTest extends MyTestCase{
 
 	@Autowired
 	private ProductDAO productDAO;
 	
+	
+	
+	
 	@Test
 	public void getProductListTest() throws Exception{
 		
-		List<ProductDTO> ar = productDAO.getProductList();
+		Pager pager = new Pager();
+		
+		
+		List<ProductDTO> ar = productDAO.getProductList(pager);
 		//단정문
 		assertNotEquals(0, ar.size()); ;
 		

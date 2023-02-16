@@ -22,7 +22,6 @@ public class BankBookController {
 	public ModelAndView getBankBookList(Pager pager) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
-		
 		mv.setViewName("bankBook/list");
 		mv.addObject("list", bankBookService.getBankBookList(pager));
 		mv.addObject("pager", pager);
