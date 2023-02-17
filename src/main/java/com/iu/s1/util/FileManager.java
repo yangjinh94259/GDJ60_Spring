@@ -23,8 +23,6 @@ public class FileManager {
 			file.mkdirs();
 		}
 		
-		
-		
 		//3. 중복되지 않는 파일명 생성
 		//Calendar ca = Calendar.getInstance();
 		//ca.getTimeInMillis();

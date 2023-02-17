@@ -40,9 +40,9 @@
 	    </div>
 	    
 	    <div class="mb-3">
-			<label for="files" class="form-label">이미지</label>
-			<input name="file" class="form-control" id="files" name="pic">
-	    </div>
+			  <label for="files" class="form-label">이미지</label>
+			  <input type="file" class="form-control" id="files" name="pic">
+		</div>
 		
 		<div class="mb-3">
 			<button class="btn btn-primary" type="submit">등록</button>

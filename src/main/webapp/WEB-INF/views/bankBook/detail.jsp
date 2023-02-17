@@ -10,11 +10,15 @@
 <body>
 	<h1>Bank Book Detail Page</h1>
 	<c:if test="${not empty dto}">
-		<h3>Num : ${dto.bookNumber}</h3>
+		<h3>Number : ${dto.bookNumber}</h3>
 		<h3>Title : ${dto.bookName}</h3>
 		<h3>Detail : ${dto.bookDetail}</h3>
 		<h3>Rate : ${dto.bookRate}</h3>
 		<h3>Sale : ${dto.bookSale}</h3>
+		<div>
+			<img src="../resources/upload/bankBook">
+		</div>	
+		
 		<a href="./delete?bookNumber=${dto.bookNumber}">상품삭제</a>
 		
 	</c:if>

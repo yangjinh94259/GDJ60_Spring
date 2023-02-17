@@ -14,12 +14,6 @@ public class BankBookImgDTO {
 	public void setFileNum(Long fileNum) {
 		this.fileNum = fileNum;
 	}
-	public Long getBookNumber() {
-		return bookNumber;
-	}
-	public void setBookNumber(Long bookNumber) {
-		this.bookNumber = bookNumber;
-	}
 	public String getFileName() {
 		return fileName;
 	}
@@ -32,6 +26,13 @@ public class BankBookImgDTO {
 	public void setOriName(String oriName) {
 		this.oriName = oriName;
 	}
+	public Long getBookNumber() {
+		return bookNumber;
+	}
+	public void setBookNumber(Long bookNumber) {
+		this.bookNumber = bookNumber;
+	}
+
 	
 	
 	

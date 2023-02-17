@@ -2,19 +2,14 @@ package com.iu.s1.bankBook;
 
 public class BankBookDTO {
 	
-	private Integer bookNumber;
+	private	Long bookNumber;
 	private String bookName;
 	private Double bookRate;
 	private Integer bookSale;
 	private String bookDetail;
 	
 	
-	public Integer getBookNumber() {
-		return bookNumber;
-	}
-	public void setBookNumber(Integer bookNumber) {
-		this.bookNumber = bookNumber;
-	}
+
 	public String getBookName() {
 		return bookName;
 	}
@@ -39,7 +34,12 @@ public class BankBookDTO {
 	public void setBookDetail(String bookDetail) {
 		this.bookDetail = bookDetail;
 	}
-	
-	
-	
+	public Long getBookNumber() {
+		return bookNumber;
+	}
+	public void setBookNumber(Long bookNumber) {
+		this.bookNumber = bookNumber;
+	}
+
+
 }
