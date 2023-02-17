@@ -53,7 +53,7 @@
   	<select id="getBankBookDetail" parameterType="BankBookDTO" resultMap="bankBookDetailResult">
 		SELECT B.*, BI.*
 		FROM BANKBOOK B
-			INNER JOIN
+			LEFT OUTER JOIN
 			BANKBOOKIMG BI 
 			ON (B.BOOKNUMBER = BI.BOOKNUMBER)
 		WHERE B.BOOKNUMBER = #{bookNumber}
