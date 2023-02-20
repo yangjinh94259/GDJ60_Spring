@@ -35,7 +35,7 @@
 			</label>
 		</div>
 </div>
-	<script type="text/javascript" src=""></script>
+	<script src="./"></script>
 	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

@@ -105,4 +105,9 @@ public class MemberController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "memberAgree", method = RequestMethod.POST)
+	public ModelAndView setMemberAgree() {
+		
+	}
+	
 }

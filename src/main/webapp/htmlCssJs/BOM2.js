@@ -59,4 +59,4 @@ s2.addEventListener("click", function(){
 
 const ch = document.getElementsByClassName("Ch")
 
-for(let i=0; )
+for(let i=0; i < )
