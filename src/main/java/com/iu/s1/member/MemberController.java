@@ -18,6 +18,11 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping(value = "memberAgree", method = RequestMethod.GET)
+	public void setMemberAgree() throws Exception{
+		
+	}
+	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public ModelAndView join(ModelAndView mv) {
 		mv.setViewName("member/memberJoin");
@@ -103,11 +108,6 @@ public class MemberController {
 //		}
 		mv.setViewName("redirect:./memberPage");
 		return mv;
-	}
-	
-	@RequestMapping(value = "memberAgree", method = RequestMethod.POST)
-	public ModelAndView setMemberAgree() {
-		
 	}
 	
 }

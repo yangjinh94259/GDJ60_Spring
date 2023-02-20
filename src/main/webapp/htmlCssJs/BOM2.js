@@ -1,62 +1,50 @@
-// const btn = document.getElementById("btn");
-// let r1 = document.getElementById("r1").value;
-
-// btn.addEventListener("click", function(){
-    
-//     console.log(r1.value*1+5)
-// })
-
-
-
 const btn = document.getElementById("btn");
 
-let r1 = document.getElementById("r1");
-let c1 = document.getElementById("c1");
-let t1 = document.getElementById("t1");
+btn.addEventListener("click",()=>{
+    const r1 = document.getElementById("r1").value;
+    const s1 = document.getElementById("s1").value;
 
-const s1 = document.getElementById("s1")
-//배열
-const options = document.getElementsByClassName("options")
-btn.addEventListener("click", function(){
 
-    let result = '';
-
-    for(let i=0; i < r1.value; i++){
-        result = result + "<tr>";
-        for(let j=0; j < c1.value; j++){
-            result = result + "<td>"
-            result = result + "</td>"
+    let insert = "";
+    for(let i = 0;i<r1;i++){
+        insert+="<tr>"
+        for(let j = 0;j<s1;j++){
+            insert+="<td></td>"
         }
-        result = result + "</tr>";
+        insert+="</tr>"
     }
 
-    t1.innerHTML = result;
-
+    const table = document.getElementById("table");
+    table.innerHTML = insert;
 })
 
+const btn1 = document.getElementById("btn1");
+btn1.addEventListener("click",()=>{
+    
+    const options = document.getElementsByClassName("options");
+    for(let i = 0;i<options.length;i++){
+        // option[i]만 쓰면 element 한줄 전부 가져오는거임
+        // console.log(options[i].value);
 
-s1.addEventListener("click", function(){
-    for(let i=0; i < options.length; i++){
+        // 이건 안됨
+        // if(options[i].getAttribute("selected")){
+        //     console.log(options[i].value);
+        // }
+
         if(options[i].selected){
             console.log(options[i].value);
-            break;
         }
     }
-});
 
+})
 
-const s2 = document.getElementById("s2");
-const options1 = document.getElementsByClassName("options1");
+const btn2 = document.getElementById("btn2");
+btn2.addEventListener("click",()=>{
 
-s2.addEventListener("click", function(){
-    for(let i=0; i < options1.length; i++){
+    const options1 = document.getElementsByClassName("options1");
+    for(let i = 0;i<options1.length;i++){
         if(options1[i].checked){
             console.log(options1[i].value);
-            break;
         }
     }
 })
-
-const ch = document.getElementsByClassName("Ch")
-
-for(let i=0; i < )
