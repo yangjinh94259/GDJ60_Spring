@@ -14,6 +14,6 @@
 	</bean>
 	
 	<!-- test 시 가짜 ServletContext 객체 생성 -->
-	<bean class="org.springframework.mock.web.MockServletContext" id="servletContext"></bean>
+	<!-- <bean class="org.springframework.mock.web.MockServletContext" id="servletContext"></bean> -->
 			
 </beans>

@@ -34,23 +34,32 @@ let checks = [false, false, false, false, false, false, false, false]
 id.addEventListener("blur", function(){
     if(id.value.length != 0){
         // idCheck = true;
+        idResult.innerHTML = "정상 아이디";
         checks[0] = true;
+        idResult.classList.add("greenResult");
+        idResult.classList.remove("redResult");
     }
     else{
-        idResult.innerHTML = "ID는 필수 입력";
+        idResult.innerHTML = "아이디는 필수 입력";
         checks[0] = false;
+        idResult.classList.add("redResult");
+        idResult.classList.remove("greenResult");
     }
 })
 
 pw.addEventListener("keyup", function(){
     if(pw.value.length > 5 && pw.value.length < 13){
-        pwResult.innerHTML = '정상 비번';
+        pwResult.innerHTML = '정상 비밀번호';
         // pwLengthCheck = true;
         checks[1] = true;
+        pwResult.classList.add("greenResult");
+        pwResult.classList.remove("redResult");
     }
     else{
         pwResult.innerHTML = '비밀번호은 6글자 이상 12자 이하';
         checks[1] = false;
+        pwResult.classList.add("redResult");
+        pwResult.classList.remove("greenResult");
     }
 })
 
@@ -62,6 +71,8 @@ pw.addEventListener("blur", function(){
     else{
         pwResult.innerHTML = '비밀번호는 필수 입력';
         checks[2] = false;
+        pwResult.classList.add("redResult");
+        pwResult.classList.remove("greenResult");
     }
 })
 
@@ -69,6 +80,7 @@ pw.addEventListener("change", function(){
     checks[3] = false;
     pwCheck.value = '';
     pwCheckResult.innerHTML = '비밀번호 불일치';
+    pwResult.classList.add("redResult");
 })
 
 pwCheck.addEventListener("blur", function(){
@@ -76,10 +88,14 @@ pwCheck.addEventListener("blur", function(){
         pwCheckResult.innerHTML = "동일한 비밀번호";
         // pwEqualCheck = true;
         checks[3] = true;
+        pwCheckResult.classList.add("greenResult");
+        pwCheckResult.classList.remove("redResult");
     }
     else{
-        pwCheckResult.innerHTML = "다른 비밀번호";
+        pwCheckResult.innerHTML = "불일치 비밀번호";
         checks[3] = false;
+        pwCheckResult.classList.add("redResult");
+        pwCheckResult.classList.remove("greenResult");
     }
 })
 
@@ -90,6 +106,8 @@ name.addEventListener("blur", function(){
     else{
         nameResult.innerHTML = "이름은 필수 입력";
         checks[4] = false;
+        nameResult.classList.add("redResult");
+        nameResult.classList.remove("greenResult");
     }
 })
 
@@ -98,8 +116,10 @@ address.addEventListener("blur", function(){
        checks[5] = true;
     }
     else{
-         addressResult.innerHTML = "주소는 필수 입력";
-         checks[5] = false;
+        addressResult.innerHTML = "주소는 필수 입력";
+        checks[5] = false;
+        addressResult.classList.add("redResult");
+        addressResult.classList.remove("greenResult");
     }
 })
 
@@ -110,6 +130,8 @@ phone.addEventListener("blur", function(){
     else{
         phoneResult.innerHTML = "전화번호는 필수 입력";
         checks[6] = false;
+        phoneResult.classList.add("redResult");
+        phoneResult.classList.remove("greenResult");
     }
 })
 
@@ -118,8 +140,10 @@ email.addEventListener("blur", function(){
        checks[7] = true;
     }
     else{
-         emailResult.innerHTML = "이메일은 필수 입력";
-         checks[7] = false;
+        emailResult.innerHTML = "이메일은 필수 입력";
+        checks[7] = false;
+        emailResult.classList.add("redResult");
+        emailResult.classList.remove("greenResult");
     }
 })
 

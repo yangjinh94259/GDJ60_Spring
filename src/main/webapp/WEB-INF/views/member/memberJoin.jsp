@@ -12,7 +12,7 @@
 		color: red;
 	}
 
-	.blueResult{
+	.greenResult{
 		color: green;
 	}
 </style>
