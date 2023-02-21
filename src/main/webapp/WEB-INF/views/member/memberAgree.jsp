@@ -18,7 +18,8 @@
 			<label class="form-check-label" for="checkAll">
 			전체동의
 			</label>
-		</div><div class="form-check">
+		</div>
+		<div class="form-check">
 			<input class="form-check-input checks"  type="checkbox" value="" id="check1">
 			<label class="form-check-label" for="check1">
 			동의1
