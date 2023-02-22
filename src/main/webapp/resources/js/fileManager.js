@@ -6,9 +6,9 @@ let count = 0;
 let max = 1;
 let param = 'pic';
 
-function setParam(){
-    param = p;
-}
+// function setParam(){
+//     param = p;
+// }
 
 function setMax(m){
     max = m;
