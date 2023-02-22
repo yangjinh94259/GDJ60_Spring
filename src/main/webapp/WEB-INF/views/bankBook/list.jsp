@@ -11,7 +11,6 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
 <div class="container-fluid my-5">
 
 	<div class="row mb-4">
