@@ -2,6 +2,8 @@ package com.iu.s1.util;
 
 public class Pager {
 	
+	private Long bookNumber;
+	
 	//검색 종류(사용할 column)
 	private String kind;
 	//검색어
@@ -108,8 +110,6 @@ public class Pager {
 //	}
 	
 	
-	
-	
 
 	public Long getPerPage() {
 		if(this.perPage==null || this.perPage==0) {
@@ -118,6 +118,14 @@ public class Pager {
 		return perPage;
 	}
 	
+	public Long getBookNumber() {
+		return bookNumber;
+	}
+
+	public void setBookNumber(Long bookNumber) {
+		this.bookNumber = bookNumber;
+	}
+
 	public String getKind() {
 		return kind;
 	}
