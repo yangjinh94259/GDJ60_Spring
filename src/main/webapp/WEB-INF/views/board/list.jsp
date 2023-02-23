@@ -17,7 +17,7 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>NUM</th><th>TITLE</th><th>WRITER</th><th>DATE</th><th>HIT</th>
+					<th>글번호</th><th>제목</th><th>작성자</th><th>작성날짜</th><th>조회수</th><!-- <th>REF</th><th>STEP</th><th>DEPTH</th> -->
 				</tr>
 			</thead>
 			<tbody>
@@ -28,6 +28,9 @@
 						<td>${dto.writer}</td>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
+						<%-- <td>${dto.ref}</td>
+						<td>${dto.step}</td>
+						<td>${dto.depth}</td> --%>
 					</tr>
 				</c:forEach>
 			</tbody>

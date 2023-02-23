@@ -24,7 +24,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<BbsDTO> ar = qnaService.getBoardList(pager);
-		mv.addObject("list1", ar);
+		mv.addObject("list", ar);
 		mv.setViewName("board/list");
 		
 		return mv;
