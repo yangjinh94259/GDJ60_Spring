@@ -49,33 +49,33 @@
 		  
 		  
 		     <li class="page-item ${pager.before ? 'disabled' : ''}">
-		      <a class="page-link" href="#" aria-label="Previous">
+		      <a class="page-link" href="./list?page=1&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 		        <span aria-hidden="true">&laquo;</span>
 		      </a>
 		    </li>
 		  
 		  
 		    <li class="page-item ${pager.before ? 'disabled' : ''}">
-		      <a class="page-link" href="#" aria-label="Previous">
+		      <a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 		        <span aria-hidden="true">&lsaquo;</span>
 		      </a>
 		    </li>
 		    
 		    
 		    <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-		    	<li class="page-item"><a class="page-link" href="#">${i}</a></li>
+		    	<li class="page-item"><a class="page-link" href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
 		    </c:forEach>
 		    
 		    
 		     <li class="page-item ${pager.after eq false ? 'disabled' : ''}">
-		      <a class="page-link"  href="#" aria-label="Next">
+		      <a class="page-link"  href="./list?page=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
 		        <span aria-hidden="true">&rsaquo;</span>
 		      </a>
 		    </li>
 		    
 		    
 		    <li class="page-item ${pager.after eq false ? 'disabled' : ''}">
-		      <a class="page-link"  href="#" aria-label="Next">
+		      <a class="page-link"  href="./list?page=${pager.totalPage}&kind=${pager.kind}&search=${pager.search}" aria-label="Next">
 		        <span aria-hidden="true">&raquo;</span>
 		      </a>
 		    </li>
@@ -88,7 +88,6 @@
 		<!-- 검색창 -->
 		<div class="row">
 			<form class="row g-3" action="./list" method="get">
-			<input type="hidden" name="page" value=1>
 			  <div class="col-auto">
 			    <label for="kind" class="visually-hidden">Kind</label>
 			    <select class="form-select" name="kind" id="kind" aria-label="Default select example">
@@ -111,7 +110,7 @@
 			<a href="./add" class="btn btn-primary col-2">상품등록</a>
 		</div>
 	</div>
-	<script src="../resources/js/pageing.js"></script>
+
 	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
