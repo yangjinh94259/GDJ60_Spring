@@ -22,17 +22,38 @@
 	   <include refid="QnaCondition"></include>
    </select>
    
-   <select id="getBoardList" resultType="BoardDTO" parameterType="Pager">
+   <select id="getBoardList" resultType="QnaDTO" parameterType="Pager">
    		SELECT * FROM 
    		(
    			SELECT ROWNUM R, Q.* FROM 
 		   		(	
-		   			SELECT NUM, TITLE, WRITER, REGDATE, HIT FROM NOTICE
+		   			SELECT NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH FROM QNA
 		   			<include refid="QnaCondition"></include>
-		   			ORDER BY NUM DESC
+		   			ORDER BY REF DESC, STEP ASC
 		   		) Q
    		)
    		WHERE R BETWEEN #{startRow} AND #{lastRow}
    </select>
-  
+   
+   <select id="getBoardDetail" parameterType="BoardDTO" resultType="QnaDTO">
+   		SELECT * FROM QNA WHERE NUM=#{num}
+   </select>
+   
+   <insert id="setBoardAdd" parameterType="BbsDTO">
+   		<selectKey keyProperty="num" resultType="Long" order="BEFORE">
+   			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+   		</selectKey>
+   		INSERT INTO QNA (NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+   		VALUES(#{num}, #{title}, #{writer}, sysdate, 0, #{num}, 0, 0)		<!-- 시퀀스 이름 다름 : localhost 일 때 NUM으로 바꿔야함 -->
+   </insert>
+   
+   <update id="setStepUpdate" parameterType="QnaDTO">
+   		UPDATE QNA SET STEP = STEP + 1
+   		WHERE REF = #{ref} AND STEP > #{step}
+   </update>
+   
+   <insert id="setReplyAdd" parameterType="QnaDTo">
+  		INSERT INTO QNA (NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+   		VALUES(QNA_SEQ.NEXTVAL, #{title}, #{writer}, sysdate, 0, #{num}, #{step}, #{depth})
+   </insert>
  </mapper>

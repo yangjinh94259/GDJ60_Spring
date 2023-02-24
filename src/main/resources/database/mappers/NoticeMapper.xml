@@ -26,7 +26,7 @@
 	   <include refid="NoticeCondition"></include>
    </select>
    
-   <select id="getBoardList" resultType="BoardDTO" parameterType="Pager">
+   <select id="getBoardList" resultType="NoticeDTO" parameterType="Pager">
    		SELECT * FROM 
    		(
    			SELECT ROWNUM R, N.* FROM 
@@ -38,5 +38,14 @@
    		)
    		WHERE R BETWEEN #{startRow} AND #{lastRow}
    </select>
+   
+   <select id="getBoardDetail" parameterType="BoardDTO" resultType="NoticeDTO">
+   		SELECT * FROM NOTICE WHERE NUM=#{num}
+   </select>
+   
+   <insert id="setBoardAdd" parameterType="BbsDTO">
+   		INSERT INTO NOTICE (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT)
+   		VALUES(NOTICE_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0)	<!-- 시퀀스 이름 다름 : localhost 일 때 NUM으로 바꿔야함 -->
+   </insert>
   
  </mapper>

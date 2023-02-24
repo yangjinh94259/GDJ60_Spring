@@ -13,24 +13,25 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container-fluid">
+	<div class="row my-5">
+		<h1>${boardName} List</h1>
+	</div>
+
 	<div class="row">
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>글번호</th><th>제목</th><th>작성자</th><th>작성날짜</th><th>조회수</th><!-- <th>REF</th><th>STEP</th><th>DEPTH</th> -->
+					<th>글번호</th><th>제목</th><th>작성자</th><th>작성날짜</th><th>조회수</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td>${dto.title}</td>
+						<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
 						<td>${dto.writer}</td>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
-						<%-- <td>${dto.ref}</td>
-						<td>${dto.step}</td>
-						<td>${dto.depth}</td> --%>
 					</tr>
 				</c:forEach>
 			</tbody>
