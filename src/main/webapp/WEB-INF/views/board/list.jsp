@@ -28,7 +28,15 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
+						<td>
+						
+						<!-- Exception 처리 -->
+						<c:catch>
+							<!-- Notice에는 depth가 없어서 Exception 발생 -->
+							<c:forEach begin="1" end="${dto.depth}">--></c:forEach>
+						</c:catch>
+						
+						<a href="./detail?num=${dto.num}">${dto.title}</a></td>
 						<td>${dto.writer}</td>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>

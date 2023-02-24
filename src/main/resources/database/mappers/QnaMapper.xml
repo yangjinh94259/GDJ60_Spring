@@ -27,7 +27,7 @@
    		(
    			SELECT ROWNUM R, Q.* FROM 
 		   		(	
-		   			SELECT NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH FROM QNA
+		   			SELECT NUM, TITLE, WRITER, REGDATE, HIT, DEPTH FROM QNA
 		   			<include refid="QnaCondition"></include>
 		   			ORDER BY REF DESC, STEP ASC
 		   		) Q
