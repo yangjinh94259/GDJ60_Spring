@@ -102,6 +102,11 @@
 			  </div>
 			</form>
 		</div>
+		
+		<div class="row">
+			<a href="./add" class="btn btn-primary">글작성</a>
+		</div>
+		
 </div>
 <script src="../resources/js/pageing.js"></script>
 <c:import url="../template/common_js.jsp"></c:import>
