@@ -1,6 +1,7 @@
 //FileManager.js
 const fileAdd = document.getElementById("fileAdd");
 const fileList = document.getElementById("fileList");
+const fileDel = document.getElementById("fileDel");
 
 let count = 0;
 let max = 1;
@@ -59,14 +60,27 @@ fileAdd.addEventListener("click", function(){
     i.setAttributeNode(attr);
 
     attr = document.createAttribute('id');   //변수명 재활용
-    attr.value = 'files';
+    attr.value = 'pic';
     i.setAttributeNode(attr);
 
     attr = document.createAttribute('name');   //변수명 재활용
-    attr.value = 'pic'; //param
+    attr.value = 'files'; //param
     i.setAttributeNode(attr);
 
-    fileList.prepend(d);
+    // fileList.prepend(d);
 
+    fileDel.prepend(d);
+    
+    let b = document.createElement("button");
 
+    attr = document.createAttribute('type');
+    attr.value = 'button';
+
+    b.setAttributeNode(attr);
+
+    let x = document.createTextNode("X");
+
+    b.append(x);
+
+    fileDel
 });

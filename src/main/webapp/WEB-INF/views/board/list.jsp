@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${boardName} Page</title>
 <c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
