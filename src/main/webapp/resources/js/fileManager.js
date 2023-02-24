@@ -82,5 +82,13 @@ fileAdd.addEventListener("click", function(){
 
     b.append(x);
 
-    fileDel
+    d.append(b);
+
+    fileDel.addEventListener("click", function(e){
+        console.log(e.target.parentNode);
+
+        e.target.parentNode.remove();
+    })
+
+    
 });
