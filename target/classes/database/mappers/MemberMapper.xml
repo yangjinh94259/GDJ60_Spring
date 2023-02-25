@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.iu.s1.member.MemberDAO">
+  	<insert id="setMemberJoin" parameterType="MemberDTO">
+  		INSERT INTO MEMBER
+  		VALUES(#{id}, #{pw}, #{name}, #{address}, #{phone}, #{email})
+  	</insert>
+  	
+  	<insert id="setMemberRoleAdd" parameterType="MemberDTO">
+  		INSERT INTO MEMBER_ROLE(ID, ROLENUM)
+  		VALUES(#{id}, (SELECT ROLENUM FROM ROLE WHERE ROLENAME='MEMBER'))
+  	</insert>
+  	
+  	<select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO">
+  		SELECT * FROM MEMBER WHERE ID = #{id}
+  	</select>
+  	
+  	<update id="setMemberUpdate" parameterType="MemberDTO">
+  		UPDATE MEMBER SET NAME = #{name}, PHONE = #{phone}, EMAIL = #{email}
+  		WHERE ID = #{id}
+  	</update>
+  	
+  </mapper>
