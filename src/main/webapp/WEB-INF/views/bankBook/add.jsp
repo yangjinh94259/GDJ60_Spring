@@ -38,12 +38,15 @@
 	    </div>
 	    
 		<div id="fileList">
-			<!-- <div class="mb-3">
-				<label for="files" class="form-label">이미지</label>
-				<input type="file" class="form-control" id="files" name="pic">
-			</div> -->
-			<button type="button" id="fileAdd">ADD</button>
-		</div>
+			<div id="fileDel"></div>
+			<!--<div class="mb-3">
+					<label for="files" class="form-label">이미지</label>
+					<input type="file" class="form-control" id="pic" name="files">
+					<button type="button">X</button>
+				</div>-->
+
+			<button type="button" id="fileAdd">추가</button>
+		</div> 
 
 		<div class="mb-3">
 			<button class="btn btn-primary" type="submit">등록</button>
@@ -53,8 +56,8 @@
 </div>
 	<script src="../resources/js/fileManager.js"></script>
 	<script>
-		setMax(1);
-		setParam('f');
+		setMax(5);
+		setParam('files');
 	</script>
 	<c:import url="../template/common_js.jsp"></c:import>
 </body>
