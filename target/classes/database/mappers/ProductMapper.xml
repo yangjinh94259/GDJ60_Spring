@@ -5,40 +5,47 @@
   
   <mapper namespace="com.iu.s1.product.ProductDAO">
   
+	  <sql id="searchCondition3">
+	  	  <if test="kind == 'contents'">
+		      WHERE PRODUCTDETAIL LIKE '%' || #{search} || '%'
+		  </if>
+	  		
+	  	  <if test="kind == 'title'">
+			  WHERE PRODUCTNAME LIKE '%' || #{search} || '%'
+		  </if>
+	  </sql>
+  	
+	  	  <sql id="searchCondition4">
+  			  WHERE
+	
+				  <choose>
+					  <when test="kind == 'contents'">
+					  	  PRODUCTDETAIL
+					  </when>
+					  <otherwise>
+						  PRODUCTNAME
+					  </otherwise>
+				  </choose>
+							
+			  LIKE '%' || #{search} || '%'
+  	  	 </sql>
+  
   <select id="getProductCount" parameterType="Pager" resultType="Long">
   	SELECT COUNT(PRODUCTNUM) FROM PRODUCT
   		
-		  <if test="kind == 'contents'">
-		  	WHERE PRODUCTDETAIL LIKE '%' || #{search} || '%'
-		  </if>
-		  	
-		  <if test="kind == 'title'">
-		  	WHERE PRODUCTNAME LIKE '%' || #{search} || '%'
-		  </if>
+		<include refid="searchCondition3"></include>
 	  	
   </select>
   
   <select id="getProductList" parameterType="Pager" resultType="ProductDTO" statementType="PREPARED">
-  	SELECT * FROM PRODUCT
+  	SELECT * FROM 
   		(
   			SELECT ROWNUM R, P.* FROM
   				(
   					SELECT * FROM PRODUCT
-	  				WHERE
-							
-						<choose>
-							<when test="kind == 'contents'">
-								PRODUCTDETAIL
-							</when>
-							<otherwise>
-								PRODUCTNAME
-							</otherwise>
-						</choose>
-							
-					LIKE '%' || #{search} || '%' 
-  					
+					<include refid="searchCondition4"></include>
   					ORDER BY PRODUCTNUM DESC
-  				)P
+  				) P
   		)
   	WHERE R BETWEEN #{startRow} AND #{lastRow}
   </select> 
