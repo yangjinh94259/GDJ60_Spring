@@ -19,7 +19,7 @@
   </select>
   
   <select id="getProductList" parameterType="Pager" resultType="ProductDTO" statementType="PREPARED">
-  	SELECT * FROM PRODUCT
+  	SELECT * FROM
   		(
   			SELECT ROWNUM R, P.* FROM
   				(
