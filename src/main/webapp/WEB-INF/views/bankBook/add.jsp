@@ -38,14 +38,15 @@
 	    </div>
 	    
 		<div id="fileList">
-			<div id="fileDel"></div>
+			<!-- <div id="fileDel"></div> -->
 			<!--<div class="mb-3">
 					<label for="files" class="form-label">이미지</label>
 					<input type="file" class="form-control" id="pic" name="files">
 					<button type="button">X</button>
 				</div>-->
-
-			<button type="button" id="fileAdd">추가</button>
+			<div class="mb-4">
+				<button type="button" id="fileAdd" class="btn btn-primary">추가</button>
+			</div>
 		</div> 
 
 		<div class="mb-3">

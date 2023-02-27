@@ -40,7 +40,7 @@
 					<button type="button">X</button>
 				</div>-->
 
-			<button type="button" id="fileAdd">추가</button>
+			<button type="button" id="fileAdd" class="btn btn-primary">추가</button>
 		</div> 
 
 		<div class="mb-3">
