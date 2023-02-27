@@ -103,7 +103,7 @@
 			</form>
 		</div>
 		
-		<div class="row">
+		<div class="row col-md-7 mx-auto">
 			<a href="./add" class="btn btn-primary">글작성</a>
 		</div>
 		

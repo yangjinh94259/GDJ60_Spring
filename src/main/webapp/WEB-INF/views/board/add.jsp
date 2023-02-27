@@ -33,7 +33,7 @@
 	    </div>
 	    
 		 <div id="fileList">
-			<div id="fileDel"></div>
+			<!-- <div id="fileDel"></div> -->
 			<!--<div class="mb-3">
 					<label for="files" class="form-label">이미지</label>
 					<input type="file" class="form-control" id="pic" name="files">
