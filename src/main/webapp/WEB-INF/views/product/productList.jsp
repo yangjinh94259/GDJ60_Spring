@@ -22,7 +22,7 @@
 		<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>상품명</th>
+						<th>제품명</th>
 						<th>평점</th>
 					</tr>
 				</thead>
@@ -85,8 +85,8 @@
 				  <div class="col-auto">
 				    <label for="kind" class="visually-hidden">Kind</label>
 				    <select class="form-select" name="kind" id="kind" aria-label="Default select example">
-						<option value="title">상품명</option>
-						<option value="contents">상품내용</option>
+						<option value="title">제품명</option>
+						<option value="contents">제품내용</option>
 					  </select>
 				  </div>
 				  <div class="col-auto">
@@ -100,7 +100,7 @@
 			</div>
 			
 			<div class="row col-md-7 mx-auto">
-				<a class="btn btn-primary col-2" href="./productAdd">상품등록</a>
+				<a class="btn btn-primary col-2" href="./productAdd">제품등록</a>
 			</div>
 		</div>
 		</div>
