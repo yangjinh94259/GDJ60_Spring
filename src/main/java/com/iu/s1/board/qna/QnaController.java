@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BbsService;
 import com.iu.s1.board.BoardDTO;
+import com.iu.s1.board.BoardFileDTO;
 import com.iu.s1.util.Pager;
 
 @Controller
@@ -28,7 +29,7 @@ public class QnaController {
 	
 	@ModelAttribute("boardName")
 	public String getBoardName() {
-		return "Qna";
+		return "qna";
 	}
 	
 	@RequestMapping(value = "list", method = RequestMethod.GET)
@@ -53,7 +54,7 @@ public class QnaController {
 	public ModelAndView setBoardAdd(QnaDTO qnaDTO, MultipartFile [] files, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = qnaService.setBoardAdd(qnaDTO, files, session);
-		
+		System.out.println(files.length);
 		String message = "등록 실패";
 		
 		if(result > 0) {
@@ -118,6 +119,18 @@ public class QnaController {
 		
 		mv.addObject("result", message);
 		mv.addObject("url", "./list");
+		
+		return mv;
+	}
+	
+	@GetMapping("fileDown")
+	public ModelAndView getFileDown(BoardFileDTO boardFileDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		boardFileDTO = qnaService.getBoardFileDetail(boardFileDTO);
+		
+		mv.addObject("boardFile", boardFileDTO);
+		mv.setViewName("fileDownView");
 		
 		return mv;
 	}

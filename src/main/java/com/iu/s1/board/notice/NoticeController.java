@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BbsService;
 import com.iu.s1.board.BoardDTO;
+import com.iu.s1.board.BoardFileDTO;
 import com.iu.s1.util.Pager;
 
 @Controller
@@ -28,7 +29,7 @@ public class NoticeController {
 	
 	@ModelAttribute("boardName")
 	public String getBoardName() {
-		return "Notice";
+		return "notice";
 	}
 	
 	@RequestMapping(value="list", method = RequestMethod.GET)
@@ -56,7 +57,7 @@ public class NoticeController {
 		String message="등록 실패";
 		
 		if(result>0) {
-			message = "글이 등록 되었습니다";
+			message = "글이 등록 완료";
 		}
 		
 		mv.addObject("result", message);
@@ -91,6 +92,18 @@ public class NoticeController {
 		mv.addObject("result", message);
 		mv.addObject("url", "./list");
 		
+		
+		return mv;
+	}
+	
+	@GetMapping("fileDown")
+	public ModelAndView getFileDown(BoardFileDTO boardFileDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		boardFileDTO = noticeService.getBoardFileDetail(boardFileDTO);
+		
+		mv.addObject("boardFile", boardFileDTO);
+		mv.setViewName("fileDownView");
 		
 		return mv;
 	}

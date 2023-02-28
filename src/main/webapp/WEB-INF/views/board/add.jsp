@@ -39,8 +39,10 @@
 					<input type="file" class="form-control" id="pic" name="files">
 					<button type="button">X</button>
 				</div>-->
-
-			<button type="button" id="fileAdd" class="btn btn-primary">추가</button>
+			
+			<div class="mb-4">
+				<button type="button" id="fileAdd" class="btn btn-primary">추가</button>
+			</div>
 		</div> 
 
 		<div class="mb-3">

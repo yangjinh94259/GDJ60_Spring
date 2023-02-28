@@ -4,7 +4,7 @@ const fileList = document.getElementById("fileList");
 
 let count = 0;
 let max = 1;
-let param = 'pic';
+let param = 'files';
 
 let idx=0;
 
