@@ -12,18 +12,19 @@ import com.iu.s1.board.BbsDAO;
 import com.iu.s1.board.BbsDTO;
 import com.iu.s1.board.BbsService;
 import com.iu.s1.util.Pager;
-
 @Service
-public class BankBookCommentService implements BbsService{
-
+public class BankBookCommentService implements BbsService {
+	
 	@Autowired
 	private BbsDAO bankBookCommentDAO;
-	//private BankBookCommentDAO bankBookCommentBbsDAO;
-	
+	//private BankBookCommentDAO bankBookCommentDAO;
+
 	@Override
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
 		pager.makeRow();
+		
 		pager.makeNum(bankBookCommentDAO.getTotalCount(pager));
+		
 		return bankBookCommentDAO.getBoardList(pager);
 	}
 
@@ -56,7 +57,7 @@ public class BankBookCommentService implements BbsService{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
 
-	
-	
 }

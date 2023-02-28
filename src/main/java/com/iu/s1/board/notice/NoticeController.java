@@ -22,7 +22,7 @@ import com.iu.s1.util.Pager;
 @Controller
 @RequestMapping("/notice/*")
 public class NoticeController {
-
+	
 	@Autowired
 	private NoticeService noticeService;
 	
@@ -31,43 +31,43 @@ public class NoticeController {
 		return "Notice";
 	}
 	
-	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView getBoardList(@ModelAttribute Pager pager) throws Exception{
+	@RequestMapping(value="list", method = RequestMethod.GET)
+	public ModelAndView getBoardList(@ModelAttribute Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
 		List<BbsDTO> ar = noticeService.getBoardList(pager);
+		
 		mv.addObject("list", ar);
 		mv.setViewName("board/list");
-		
 		return mv;
 	}
 	
 	@GetMapping("add")
-	public ModelAndView setBoardAdd() throws Exception{
+	public ModelAndView setBoardAdd()throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("board/add");
 		return mv;
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setBoardAdd(NoticeDTO noticeDTO, MultipartFile [] files, HttpSession session) throws Exception{
+	public ModelAndView setBoardAdd(NoticeDTO noticeDTO, MultipartFile [] files, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setBoardAdd(noticeDTO, files, session);
 		
-		String message = "등록 실패";
+		String message="등록 실패";
 		
-		if(result > 0) {
-			message = "글이 등록 완료";
+		if(result>0) {
+			message = "글이 등록 되었습니다";
 		}
 		
 		mv.addObject("result", message);
 		mv.addObject("url", "./list");
 		mv.setViewName("common/result");
 		return mv;
+		
 	}
 	
 	@GetMapping("detail")
-	public ModelAndView getBoardDetail(NoticeDTO noticeDTO) throws Exception{
+	public ModelAndView getBoardDetail(NoticeDTO noticeDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		BoardDTO boardDTO = noticeService.getBoardDetail(noticeDTO);
 		mv.addObject("dto", boardDTO);
@@ -76,21 +76,24 @@ public class NoticeController {
 	}
 	
 	@PostMapping("delete")
-	public ModelAndView setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception{
+	public ModelAndView setBoardDelete(BbsDTO bbsDTO, HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("common/result");
 		
 		int result = noticeService.setBoardDelete(bbsDTO, session);
 		
-		String message = "삭제 실패";
+		String message="삭제 실패";
 		
-		if(result > 0) {
+		if(result>0) {
 			message="삭제 성공";
 		}
 		
 		mv.addObject("result", message);
 		mv.addObject("url", "./list");
 		
+		
 		return mv;
 	}
+	
+
 }
