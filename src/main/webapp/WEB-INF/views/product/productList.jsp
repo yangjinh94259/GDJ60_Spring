@@ -99,11 +99,12 @@
 				</form>
 			</div>
 			
+			</div>
 			<div class="row col-md-7 mx-auto">
 				<a class="btn btn-primary col-2" href="./productAdd">제품등록</a>
 			</div>
 		</div>
-		</div>
+		
 		<c:import url="../template/common_js.jsp"></c:import>
  </body>
 </html>

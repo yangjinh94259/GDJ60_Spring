@@ -37,6 +37,16 @@
 						</c:catch>
 						
 						<a href="./detail?num=${dto.num}">${dto.title}</a></td>
+						<%-- <td>
+							<c:choose>
+								<c:when test="${boardDTO eq 'notice'}">
+									작성자
+								</c:when>
+								<c:otherwise>
+									
+								</c:otherwise>
+							</c:choose>
+						</td> --%>
 						<td>${dto.writer}</td>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
@@ -103,10 +113,20 @@
 			</form>
 		</div>
 		
-		<div class="row col-md-7 mx-auto">
-			<a href="./add" class="btn btn-primary">글작성</a>
-		</div>
-		
+		<c:if test="${not empty member}">
+				<c:if test="${boardName eq 'notice' and member.roleDTO.roleName eq 'ADMIN'}">
+					<div class="row col-md-7 mx-auto">
+						<a href="./add" class="btn btn-primary">글작성</a>
+					</div>
+				</c:if>
+				
+				<c:if test="${boardName ne 'notice'}">
+					<div class="row col-md-7 mx-auto">
+						<a href="./add" class="btn btn-primary">글작성</a>
+					</div>
+				</c:if>
+				
+		</c:if>
 </div>
 <script src="../resources/js/pageing.js"></script>
 <c:import url="../template/common_js.jsp"></c:import>

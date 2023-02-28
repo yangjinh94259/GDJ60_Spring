@@ -25,8 +25,6 @@
 			<a href="./reply?num=${dto.num}" class="btn btn-primary">답글</a>
 		</c:if>
 		
-		
-		
 		<div>
 			<form action="./update" id="frm">
 				<input type="hidden" name="num" value="${dto.num}">

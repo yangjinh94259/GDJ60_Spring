@@ -16,9 +16,10 @@
 		</div>
 		
 		<div class="row">
-			<h3>Name : ${dto.name}</h3>
-			<h3>Phone : ${dto.phone}</h3>
-			<h3>Email : ${dto.email}</h3>
+			<h3>이름 : ${dto.name}</h3>
+			<h3>전화번호 : ${dto.phone}</h3>
+			<h3>이메일 : ${dto.email}</h3>
+			<h3>회원등급 : ${dto.roleDTO.roleName}</h3>
 			<a href="./memberUpdate" class="btn btn-primary">정보수정</a>
 		</div>
 	</div>
