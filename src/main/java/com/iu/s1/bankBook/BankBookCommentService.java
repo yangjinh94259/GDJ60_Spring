@@ -58,6 +58,4 @@ public class BankBookCommentService implements BbsService {
 		return 0;
 	}
 	
-	
-
 }
