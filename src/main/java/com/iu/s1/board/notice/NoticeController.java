@@ -57,7 +57,7 @@ public class NoticeController {
 		String message="등록 실패";
 		
 		if(result>0) {
-			message = "글이 등록 완료";
+			message = "글 등록 완료";
 		}
 		
 		mv.addObject("result", message);
@@ -108,5 +108,17 @@ public class NoticeController {
 		return mv;
 	}
 	
-
+	@GetMapping("update")
+	public ModelAndView setBoardUpdate(BoardDTO boardDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boardDTO = noticeService.getBoardDetail(boardDTO);
+		
+		mv.addObject("dto", boardDTO);
+		
+		mv.setViewName("board/update");
+		
+		return mv;
+		
+	}
+	
 }

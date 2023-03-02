@@ -118,13 +118,13 @@
 		
 			<c:if test="${not empty member}">
 				<c:if test="${boardName eq 'notice' and member.roleDTO.roleName eq 'ADMIN'}">
-					<div class="row">
+					<div class="row my-5">
 						<a href="./add" class="btn btn-primary">글작성</a>
 					</div>
 				</c:if>
 				
 				<c:if test="${boardName ne 'notice'}">
-					<div class="row">
+					<div class="row my-5">
 						<a href="./add" class="btn btn-primary">글작성</a>
 					</div>
 				</c:if>
