@@ -32,20 +32,53 @@ let checks = [false, false, false, false, false, false, false, false]
 
 //id 검증
 id.addEventListener("blur", function(){
-    if(id.value.length != 0){
-        // idCheck = true;
-        idResult.innerHTML = "정상 아이디";
-        checks[0] = true;
-        idResult.classList.add("greenResult");
-        idResult.classList.remove("redResult");
-    }
-    else{
-        idResult.innerHTML = "아이디는 필수 입력";
-        checks[0] = false;
-        idResult.classList.add("redResult");
-        idResult.classList.remove("greenResult");
-    }
-})
+    
+    //중복 검사
+    let xhttp = new XMLHttpRequest();
+
+    //url, method
+    xhttp.open("POST", "./memberIdCheck");
+
+    //header
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    //요청 발생 post일 경우 parameter 전송
+    xhttp.send("id=" + id.value);
+  
+    //응답 처리
+    xhttp.addEventListener("readystatechange", function(){
+        if(this.readyState == 4 && this.status == 200){
+            if(this.responseText.trim() == 'true'){
+                idResult.innerHTML = '사용 가능한 아이디';
+                idResult.classList.add("greenResult");
+                idResult.classList.remove("redResult");
+            }
+            else{
+                idResult.innerHTML = '중복 아이디';
+                idResult.classList.add("redResult");
+                idResult.classList.remove("greenResult");
+            }
+        }
+        // if(this.readyState == 4 && this.status != 200){
+
+        // }
+    })
+
+//     if(id.value.length != 0){
+//         // idCheck = true;
+//         idResult.innerHTML = "정상 아이디";
+//         checks[0] = true;
+//         idResult.classList.add("greenResult");
+//         idResult.classList.remove("redResult");
+//     }
+//     else{
+//         idResult.innerHTML = "아이디는 필수 입력";
+//         checks[0] = false;
+//         idResult.classList.add("redResult");
+//         idResult.classList.remove("greenResult");
+//     }
+// })
+});
 
 pw.addEventListener("keyup", function(){
     if(pw.value.length > 5 && pw.value.length < 13){
