@@ -32,6 +32,18 @@ public class NoticeController {
 		return "notice";
 	}
 	
+	@GetMapping("listTop")
+	public ModelAndView getBoardListTop(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		pager.setPerPage(5L);
+		
+		List<BbsDTO> ar = noticeService.getBoardList(pager);
+		
+		mv.addObject("list", ar);
+		mv.setViewName("common/noticeResult");
+		return mv;
+	}
+	
 	@RequestMapping(value="list", method = RequestMethod.GET)
 	public ModelAndView getBoardList(@ModelAttribute Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -57,7 +69,7 @@ public class NoticeController {
 		String message="등록 실패";
 		
 		if(result>0) {
-			message = "글 등록 완료";
+			message = "글이 등록 되었습니다";
 		}
 		
 		mv.addObject("result", message);
@@ -97,9 +109,8 @@ public class NoticeController {
 	}
 	
 	@GetMapping("fileDown")
-	public ModelAndView getFileDown(BoardFileDTO boardFileDTO) throws Exception{
+	public ModelAndView getFileDown(BoardFileDTO boardFileDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
 		boardFileDTO = noticeService.getBoardFileDetail(boardFileDTO);
 		
 		mv.addObject("boardFile", boardFileDTO);
@@ -109,7 +120,7 @@ public class NoticeController {
 	}
 	
 	@GetMapping("update")
-	public ModelAndView setBoardUpdate(BoardDTO boardDTO) throws Exception{
+	public ModelAndView setBoardUpdate(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getBoardDetail(boardDTO);
 		
@@ -118,7 +129,7 @@ public class NoticeController {
 		mv.setViewName("board/update");
 		
 		return mv;
-		
 	}
 	
+
 }

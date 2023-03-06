@@ -99,7 +99,7 @@
   	
   	<insert id="setBankBookImgAdd" parameterType="BankBookImgDTO">
   		INSERT INTO BANKBOOKIMG
-  		VALUES(BankBook_SEQ.NEXTVAL, #{bookNumber}, #{fileName}, #{oriName})
+  		VALUES(BanKBooK_SEQ.NEXTVAL, #{bookNumber}, #{fileName}, #{oriName})
   	</insert>
   	
   </mapper>
