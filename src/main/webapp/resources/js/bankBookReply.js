@@ -2,6 +2,9 @@ const replyAdd = document.getElementById("replyAdd");
 const replyContents = document.getElementById("replyContents");
 const commentListResult = document.getElementById("commentListResult");
 
+const contentsConfirm = document.getElementById("contentsConfirm");
+const closeModal = document.getElementById("closeModal");
+
 replyAdd.addEventListener("click", function(){
 
     let xhttp = new XMLHttpRequest();
@@ -58,6 +61,7 @@ commentListResult.addEventListener("click", function(e){
                 let result = this.responseText.trim();
                 if(result > 0){
                     alert("댓글 삭제 성공");
+                    closeModal.click();
                     getList(1);
                 }
                 else{
@@ -75,44 +79,41 @@ commentListResult.addEventListener("click", function(e){
 commentListResult.addEventListener("click", function(e){
     let update = e.target;
     if(update.classList.contains("update")){
-        // console.log(update.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling);
+       
         let num = update.getAttribute("data-comment-num");
         let contents = document.getElementById("contents"+num);
-        console.log(contents.firstChild);
-        //contents.innerHTML='<textarea name="" id="" cols="15" rows="2" style="resize:none;">' + contents.innerHTML + '</textarea>';
-        contents.firstChild.removeAttribute("readonly");
-        let btn = document.createElement("button");
-        let attr = document.createAttribute("class");
-        attr.value = "btn btn-primary";
-        btn.setAttributeNode(attr);
-        contents.appendChild(btn);
-        attr = document.createTextNode("확인");
-        btn.appendChild(attr);
 
-        btn.addEventListener("click", function(){
-            console.log(contents.firstChild.value);
-            console.log(num);
-
-            let xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "../bankBookComment/update")
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("num=" + num + "&contents=" + contents);
-            xhttp.addEventListener("readystatechange", function(){
-                if(this.readyState == 4 && this.status == 200){
-                    let result = this.responseText.trim();
-                    console.log(result);
-                    if(result > 0){
-                        alert("댓글 수정 성공");
-                        getList(1);
-                    }
-                    else{
-                        alert("댓글 수정 실패");
-                    }
-                }
-            })
-        });
+        console.log(contents);
+        console.log(num);
+        let contentsTextArea = document.getElementById("contents");
+        contentsTextArea.value = contents.innerText;
+        contentsConfirm.setAttribute("data-comment-num", num);
     }
-
+           
     e.preventDefault();
 
+});
+
+contentsConfirm.addEventListener("click", function(){
+    console.log("update Post");
+    let updateContents = document.getElementById("contents").value;
+    let num = contentsConfirm.getAttribute("data-comment-num");
+
+    let xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "../bankBookComment/update");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("num="+num+"&contents="+updateContents);
+        xhttp.addEventListener("readystatechange", function(){
+            if(this.readyState == 4 && this.status == 200){
+                let result = this.responseText.trim();
+                if(result > 0){
+                    alert("댓글 수정 성공");
+                    getList(1);
+                    closeModal.click();
+                }
+                else{
+                    alert("댓글 수정 실패");
+                }
+            }
+         })
 });
