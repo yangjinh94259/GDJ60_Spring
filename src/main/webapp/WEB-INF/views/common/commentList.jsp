@@ -9,8 +9,13 @@
 		<td>${dto.writer}</td>
 		<td>${dto.regDate}</td>
 		<td><c:if test="${member.id eq dto.writer}">
-			<button class="btn btn-danger" data-comment-num="${dto.num}">DELETE</button>
+			<button class="btn btn-info " data-comment-num="${dto.num}">댓글 수정</button>
 		</c:if>
+		</td>
+		<td><c:if test="${member.id eq dto.writer}">
+			<button class="btn btn-danger del" data-comment-num="${dto.num}">댓글 삭제</button>
+		</c:if>
+		</td>
 	</tr>
 </c:forEach>
 </table>
@@ -20,13 +25,12 @@
 		<nav aria-label="Page navigation example">
 		  <ul class="pagination">
 		  
-		  
 		     <li class="page-item ${pager.before ? 'disabled' : ''}">
 		      <a class="page-link" href="./list?page=1&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 		        <span aria-hidden="true">&laquo;</span>
 		      </a>
 		    </li>
-		  
+
 		  
 		    <li class="page-item ${pager.before ? 'disabled' : ''}">
 		      <a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
@@ -52,7 +56,6 @@
 		        <span aria-hidden="true">&raquo;</span>
 		      </a>
 		    </li>
-		    
 		    
 		  </ul>
 		</nav>
