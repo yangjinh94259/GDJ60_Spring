@@ -71,3 +71,48 @@ commentListResult.addEventListener("click", function(e){
     e.preventDefault();
 
 });
+
+commentListResult.addEventListener("click", function(e){
+    let update = e.target;
+    if(update.classList.contains("update")){
+        // console.log(update.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling);
+        let num = update.getAttribute("data-comment-num");
+        let contents = document.getElementById("contents"+num);
+        console.log(contents.firstChild);
+        //contents.innerHTML='<textarea name="" id="" cols="15" rows="2" style="resize:none;">' + contents.innerHTML + '</textarea>';
+        contents.firstChild.removeAttribute("readonly");
+        let btn = document.createElement("button");
+        let attr = document.createAttribute("class");
+        attr.value = "btn btn-primary";
+        btn.setAttributeNode(attr);
+        contents.appendChild(btn);
+        attr = document.createTextNode("확인");
+        btn.appendChild(attr);
+
+        btn.addEventListener("click", function(){
+            console.log(contents.firstChild.value);
+            console.log(num);
+
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "../bankBookComment/update")
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("num=" + num + "&contents=" + contents);
+            xhttp.addEventListener("readystatechange", function(){
+                if(this.readyState == 4 && this.status == 200){
+                    let result = this.responseText.trim();
+                    console.log(result);
+                    if(result > 0){
+                        alert("댓글 수정 성공");
+                        getList(1);
+                    }
+                    else{
+                        alert("댓글 수정 실패");
+                    }
+                }
+            })
+        });
+    }
+
+    e.preventDefault();
+
+});

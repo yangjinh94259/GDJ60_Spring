@@ -40,11 +40,11 @@
 					<input type="file" class="form-control" id="files" name="files">
 					<button type="button" class="btn btn-outline-danger">X</button>
 				</div>  -->
-				<button type="button" class="btn btn-primary" id="fileAdd">ADD</button>
+				<button type="button" class="btn btn-info" id="fileAdd">ADD</button>
 			</div>
 						
 			<div class="mb-3">
-				<button class="my btn btn-danger" type="submit">글쓰기</button>
+				<button class="my btn btn-primary" type="submit">글쓰기</button>
 			</div>
 		
 		</form>
