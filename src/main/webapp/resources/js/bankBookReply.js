@@ -73,17 +73,17 @@ commentListResult.addEventListener("click", function(e){
 });
 
 commentListResult.addEventListener("click", function(e){
-    let update = e.target;
-    if(update.classList.contains("update")){
-        // console.log(update.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling);
-        let num = update.getAttribute("data-comment-num");
+    let updateButton = e.target;
+    if(updateButton.classList.contains("update")){
+        //console.log(updateButton.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling);
+        let num = updateButton.getAttribute("data-comment-num");
         let contents = document.getElementById("contents"+num);
-        console.log(contents.firstChild);
-        //contents.innerHTML='<textarea name="" id="" cols="15" rows="2" style="resize:none;">' + contents.innerHTML + '</textarea>';
+        // console.log(contents);
+        // contents.innerHTML='<textarea name="" id="" cols="30" rows="3">'+contents.innerHTML+'</textarea>';
         contents.firstChild.removeAttribute("readonly");
         let btn = document.createElement("button");
         let attr = document.createAttribute("class");
-        attr.value = "btn btn-primary";
+        attr.value="btn btn-primary";
         btn.setAttributeNode(attr);
         contents.appendChild(btn);
         attr = document.createTextNode("확인");
@@ -94,25 +94,26 @@ commentListResult.addEventListener("click", function(e){
             console.log(num);
 
             let xhttp = new XMLHttpRequest();
-            xhttp.open("POST", "../bankBookComment/update")
+            xhttp.open("POST", "../bankBookComment/update");
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("num=" + num + "&contents=" + contents);
+            xhttp.send("num="+num+"&contents="+contents.firstChild.value);
             xhttp.addEventListener("readystatechange", function(){
-                if(this.readyState == 4 && this.status == 200){
+                if(this.readyState==4&&this.status==200){
                     let result = this.responseText.trim();
-                    console.log(result);
-                    if(result > 0){
-                        alert("댓글 수정 성공");
+                    if(result>0){
+                        alert('수정 성공');
                         getList(1);
+                    }else {
+                        alert('수정 실패');
                     }
-                    else{
-                        alert("댓글 수정 실패");
-                    }
-                }
+                    
+                }        
             })
-        });
+
+        })
+       
     }
 
     e.preventDefault();
-
+    
 });
