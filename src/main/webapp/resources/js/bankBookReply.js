@@ -9,14 +9,11 @@ const closeModal = document.getElementById('closeModal');
 
 
 //댓글 등록
-replyAdd.addEventListener("click", function(){
-    console.log("num : ", replyAdd.getAttribute('data-book-bookNum'));
-
+$("#replyAdd").click(function(){
     //JS에서 사용할 가상의 Form 태그 생성
     const form1 = new FormData(); // <form></form>
-    form1.append("contents", replyContents.value); //<form><input type="text" name="contents" value="dfds"></form>
-    form1.append("bookNumber", replyAdd.getAttribute('data-book-bookNum'))//<form><input type="text" name="contents" value="dfds"><input type="text" name="bookNum" value="123"></form>
-
+    form1.append("contents", $("#replyContents").val()); //<form><input type="text" name="contents" value="dfds"></form>
+    form1.append("bookNumber", $("#replyAdd").attr('data-book-bookNum'))//<form><input type="text" name="contents" value="dfds"><input type="text" name="bookNum" value="123"></form>
 
     fetch('../bankBookComment/add', {
         method:'POST',
@@ -26,7 +23,7 @@ replyAdd.addEventListener("click", function(){
     .then((res)=>{
         if(res.trim()==1){
             alert('댓글이 등록 되었습니다')
-            replyContents.value="";
+            $("#replyContents").val("");
             getList(1);            
         }else {
             alert('댓글 등록에 실패 했습니다')
