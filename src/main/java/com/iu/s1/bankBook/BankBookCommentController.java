@@ -39,7 +39,8 @@ public class BankBookCommentController {
 		ModelAndView mv = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		bankBookCommentDTO.setWriter(memberDTO.getId());
-//		bankBookCommentDTO.setWriter("iu");
+		//bankBookCommentDTO.setWriter("iu");
+		System.out.println("num : "+bankBookCommentDTO.getBookNumber());
 		int result = bankBookCommentService.setBoardAdd(bankBookCommentDTO, null, null);
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
@@ -47,26 +48,28 @@ public class BankBookCommentController {
 	}
 	
 	@PostMapping("delete")
-	public ModelAndView setBoardDelete(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+	public ModelAndView setBoardDelete(BankBookCommentDTO bankBookCommentDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		int result = bankBookCommentService.setBoardDelete(bankBookCommentDTO, null);
 		
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
-		
 		return mv;
 	}
 	
 	@PostMapping("update")
-	public ModelAndView setBoardUpdate(BankBookCommentDTO bankBookCommentDTO) throws Exception{
+	public ModelAndView setBoardUpdate(BankBookCommentDTO bankBookCommentDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
 		int result = bankBookCommentService.setBoardUpdate(bankBookCommentDTO);
 		
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
-		
 		return mv;
-	}	
+	}
+	
+	
+	
+
 }
