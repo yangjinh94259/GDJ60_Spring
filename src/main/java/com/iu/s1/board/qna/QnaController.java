@@ -22,7 +22,7 @@ import com.iu.s1.board.BoardFileDTO;
 import com.iu.s1.util.Pager;
 
 @Controller
-@RequestMapping("/qna/*")
+@RequestMapping("/qna/**")
 public class QnaController {
 
 	@Autowired
@@ -38,7 +38,7 @@ public class QnaController {
 		ModelAndView mv = new ModelAndView();
 		
 		List<BbsDTO> ar = qnaService.getBoardList(pager);
-		mv.addObject(getBoardName(), ar);
+		mv.addObject("list", ar);
 		mv.setViewName("board/list");
 		
 		return mv;

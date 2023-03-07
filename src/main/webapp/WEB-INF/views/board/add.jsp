@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
-
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -40,22 +41,23 @@
 					<input type="file" class="form-control" id="files" name="files">
 					<button type="button" class="btn btn-outline-danger">X</button>
 				</div>  -->
-				<button type="button" class="btn btn-primary" id="fileAdd">ADD</button>
+				<button type="button" class="btn btn-info" id="fileAdd">ADD</button>
 			</div>
 						
 			<div class="mb-3">
-				<button class="my btn btn-danger" type="submit">글쓰기</button>
+				<button class="my btn btn-primary" type="submit">글쓰기</button>
 			</div>
 		
 		</form>
 	</div>
 </div>
 
-<script src="../resources/js/fileManger.js"></script>
+<script src="../resources/js/fileManager.js"></script>
+<c:import url="../template/common_js.jsp"></c:import>
 <script>
 	setMax(5);
-	setParam('files');
+	/* setParam('files'); */
+	$("#contents").summernote();
 </script>
-<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

@@ -24,7 +24,7 @@
 		<div class="my-5">
 			<form action="./update" id="frm">
 				<c:if test="${boardName ne 'notice'}">
-					<a href="./reply?num=${dto.num}" class="btn btn-danger">답글</a>
+					<a href="./reply?num=${dto.num}" class="btn btn-primary">답글</a>
 				</c:if>
 				<input type="hidden" name="num" value="${dto.num}">
 				<%-- <c:if test="${dto.writer eq member.id}"> --%>
