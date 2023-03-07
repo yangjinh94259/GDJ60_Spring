@@ -40,13 +40,13 @@ public class BankBookCommentDAO implements BbsDAO {
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.update(NAMESPACE + "setBoardUpdate", bbsDTO);
+		return sqlSession.update(NAMESPACE+"setBoardUpdate", bbsDTO);
 	}
 
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.delete(NAMESPACE + "setBoardDelete", bbsDTO);
+		return sqlSession.delete(NAMESPACE+"setBoardDelete", bbsDTO);
 	}
 	
 	
