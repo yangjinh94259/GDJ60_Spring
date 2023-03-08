@@ -7,8 +7,6 @@ let max = 1;
 let param = 'addfiles';
 let idx=0;
 
-
-
 function setCount(c){
     count = c;
 }
@@ -20,6 +18,28 @@ function setCount(c){
 function setMax(m){
     max = m;
 }
+
+$(".deleteCheck").click(function(){
+    if($(this).prop('checked')){
+        let result = confirm('파일 영구 삭제됨')
+
+        if(result){
+            count--;
+        }
+        else{
+            $(this).prop("checked", false);
+        }
+
+    }
+    else{
+        if(count == 5){
+            console.log("idx:", idx);
+            $("#f"+(idx-1)).remove();
+            return;
+        }
+        count++;
+    }
+});
 
 $("#fileList").on("click", ".dels", function(){
     // let id = $(this).attr("data-dels-id");
@@ -48,7 +68,8 @@ $("#fileAdd").click(()=>{
     let child = '<div class="input-group mb-3" id="f'+idx+'">';
         child = child+ '<input type="file" class="form-control" name="addfiles">'
         child = child+ '<button type="button" class="btn btn-outline-danger dels" data-dels-id="f'+idx+'">X</button>'
-    $("#fileList").prepend(child);
+        // child = child + '<div>'
+    $("#fileList").append(child);
 
     idx++;
 });
