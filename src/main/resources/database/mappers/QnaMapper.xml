@@ -65,8 +65,8 @@
    		<selectKey keyProperty="num" resultType="Long" order="BEFORE">
    			SELECT QNA_SEQ.NEXTVAL FROM DUAL
    		</selectKey>
-   		INSERT INTO QNA (NUM, TITLE, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
-   		VALUES(#{num}, #{title}, #{writer}, sysdate, 0, #{num}, 0, 0)		<!-- 시퀀스 이름 다름 : localhost 일 때 NUM으로 바꿔야함 -->
+   		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+   		VALUES(#{num}, #{title}, #{contents}, #{writer}, sysdate, 0, #{num}, 0, 0)		<!-- 시퀀스 이름 다름 : localhost 일 때 NUM으로 바꿔야함 -->
    </insert>
    
    <insert id="setBoardFileAdd" parameterType="BoardFileDTO">
@@ -95,5 +95,13 @@
    <select id="getBoardFileDetail" parameterType="BoardFileDTO" resultType="BoardFileDTO">
    		SELECT * FROM QNAFILES WHERE FILENUM=#{fileNum}
    </select>
+   
+   <delete id="setBoardFileDelete" parameterType="Long">
+   		DELETE QNAFILES WHERE FILENUM=#{fileNum}
+   </delete>
+   
+   <update id="setBoardUpdate" parameterType="BbsDTO">
+   		UPDATE QNA SET TITLE=#{title}, CONTENTS=#{contents} WHERE NUM=#{num}
+   </update>
    
  </mapper>
