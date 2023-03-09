@@ -38,7 +38,7 @@
 			</div>
 			
 			<div id="fileList" class="my-5">	
-				<button type="button" class="btn btn-info" id="fileAdd">ADD</button>
+				<button type="button" class="btn btn-info" id="fileAdd">추가</button>
 				
 				<c:forEach items="${dto.boardFileDTOs}" var="fileDTO">
 					<div class="input-group mb-3 my-3">

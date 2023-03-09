@@ -20,25 +20,63 @@ function setMax(m){
 }
 
 $(".deleteCheck").click(function(){
-    if($(this).prop('checked')){
-        let result = confirm('파일 영구 삭제됨')
+    let result = confirm('파일 영구 삭제됨');
+    let ch = $(this);
+    if(result){
+        let fileNum = $(this).val();    //변하지 않으면 attr 변하는 속성이면 prop
+        $.ajax({
+            type:'POST',
+            url:'./boardFileDelete',
+            data:{
+                fileNum:fileNum
+            },
+            success:function(response){
+                if(response.trim() > 0){
+                    alert("삭제 완료")
+                    //this : ajax객체 자기 자신
+                    console.log($(ch))
+                    ch.parent().parent().remove();
+                    count--;
+                }
+                else{
+                    alert("삭제 실패")
+                }
+            },
+            error:function(){
 
-        if(result){
-            count--;
-        }
-        else{
-            $(this).prop("checked", false);
-        }
+            }
+        })
 
+        //ajax DB에서 삭제
+        //fetch
+        // fetch("URL?P=1", {
+        //     method:'GET'
+        // }).then((response)=>response.text())
+        // .then((res)=>{
+
+        // })
+        
+        //fetch
+        // fetch("URL", {
+        // method: 'POST',
+        // headers:{
+        // 'Contents-Type':'X...'
+        // },
+        //     body:"p=1"
+        // }).then((response)=>response.text())
+        //  .then((res)=>{
+                    
+        //  })
+        // $.get("URL?p=1", function(response){
+        //      //
+        // })
+                    
+        // $.post("URL",{p:1}, function(){
+
+        // })        
     }
     else{
-        if(count==5){
-            console.log("idx : ", idx);
-            idx--
-            $("#f"+idx).remove();
-            return;
-        }
-        count++;
+        $(this).prop('checked', false);
     }
 });
 

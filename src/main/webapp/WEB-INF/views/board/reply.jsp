@@ -41,9 +41,9 @@
 						<button type="button">X</button>
 					</div>-->
 
-			<button type="button" id="fileAdd" class="btn btn-primary">추가</button>
+			<button type="button" id="fileAdd" class="btn btn-info">추가</button>
 		</div> 
-			<div class="mb-3">
+			<div class="mb-3 mt-3">
 				<button class="btn btn-primary" type="submit">글쓰기</button>
 			</div>
 		</form>

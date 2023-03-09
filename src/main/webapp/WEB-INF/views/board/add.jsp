@@ -41,7 +41,7 @@
 					<input type="file" class="form-control" id="files" name="files">
 					<button type="button" class="btn btn-outline-danger">X</button>
 				</div>  -->
-				<button type="button" class="btn btn-info" id="fileAdd">ADD</button>
+				<button type="button" class="btn btn-info" id="fileAdd">추가</button>
 			</div>
 						
 			<div class="mb-3">
